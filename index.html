@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <button d-click={increment}>Click me</button>
+        <button d-mouseover={helloWorld}>Say hello</button>
+        <button d-click={printElement}>Print Me</button>
+    </div>
+
+    <script src="./ds.js"></script>
+    <script>
+        var app = new Ds();
+        app.render('app',{
+            data:{
+                counter:0,
+                text:'Hai'
+            },
+            event:{
+                increment:function(){
+                    this.counter++;
+                    console.log(this.counter);
+                },
+                helloWorld:function(){
+                    alert(this.text)
+                },
+                printElement:function(){
+                    console.log(this.me);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
