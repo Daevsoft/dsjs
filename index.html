@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <button @click={increment}>Click me</button>
-        <button @mouseover={helloWorld}>Say hello</button>
+        <button @click={helloWorld}>Say hello</button>
         <button @click={printElement}>Print Me</button>
     </div>
 
@@ -25,8 +25,7 @@
             event:{
                 increment:function(){
                     this.counter++;
-                    console.log(this.counter);
-                    // this.me.text(this.counter);
+                    this.me.text('Clicked ' + this.counter);
                 },
                 helloWorld:function(){
                     alert(this.text)

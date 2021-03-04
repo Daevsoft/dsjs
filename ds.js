@@ -16,8 +16,9 @@ class Ds{
         }
     }
     reRender(element){
-        var elData = this.data;
+        var elData = {...this.data};
         elData.me = element;
+        element.text = this.text.bind(elData);
         for (let i = 0; i < element.attributes.length; i++) {
             const attr = element.attributes[i];
             const attrValue = attr.nodeValue;
