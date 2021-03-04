@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modal</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
     <div id="app">
-        <button d-click={increment}>Click me</button>
-        <button d-mouseover={helloWorld}>Say hello</button>
-        <button d-click={printElement}>Print Me</button>
+        <button @click={increment}>Click me</button>
+        <button @mouseover={helloWorld}>Say hello</button>
+        <button @click={printElement}>Print Me</button>
     </div>
 
     <script src="./ds.js"></script>
@@ -26,6 +26,7 @@
                 increment:function(){
                     this.counter++;
                     console.log(this.counter);
+                    // this.me.text(this.counter);
                 },
                 helloWorld:function(){
                     alert(this.text)
