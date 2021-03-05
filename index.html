@@ -9,9 +9,16 @@
 </head>
 <body>
     <div id="app">
+        <div>
+            <span @mouseover={hoverMe} @mouseleave={leaveMe} d-id={txtName}>Hover me!</span>
+        </div>
+        <div>
+            <input type="text" @change={addHtml} d-id={inpName}>
+            <span d-id={txtSpan}></span>
+        </div>
         <button @click={increment}>Click me</button>
-        <button @click={helloWorld}>Say hello</button>
         <button @click={printElement}>Print Me</button>
+        <span d-id={txtTitle}></span>
     </div>
 
     <script src="./ds.js"></script>
@@ -23,15 +30,29 @@
                 text:'Hai'
             },
             event:{
+                init:function(){
+                    this.inpName.attr('placeholder', 'Insert your name');
+                },
                 increment:function(){
                     this.counter++;
                     this.me.text('Clicked ' + this.counter);
                 },
-                helloWorld:function(){
-                    alert(this.text)
+                hoverMe:function(){
+                    // alert(this.text)
+                    this.txtTitle.text('Hey What are you doing?');
+                },
+                leaveMe:function(){
+                    this.txtTitle.text('I can see you');
                 },
                 printElement:function(){
                     console.log(this.me);
+                },
+                editText:function(){
+                    this.txtName.text(this.me.value);
+                    console.log()
+                },
+                addHtml:function(){
+                    this.txtName.html('<b>'+this.me.value+'</b>');
                 }
             }
         });
