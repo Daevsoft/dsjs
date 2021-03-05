@@ -34,24 +34,23 @@
                 },
                 increment:function(){
                     this.counter++;
-                    this.me.text('Clicked ' + this.counter);
+                    this.me.setText('Clicked ' + this.counter);
                 },
                 hoverMe:function(){
-                    // alert(this.text)
-                    this.txtTitle.text('Hey What are you doing?');
+                    this.txtTitle.setText('Hey What are you doing?');
                 },
                 leaveMe:function(){
-                    this.txtTitle.text('I can see you');
+                    this.txtTitle.setText('I can see you');
                 },
                 printElement:function(){
                     console.log(this.me);
                 },
                 editText:function(){
-                    this.txtName.text(this.me.value);
+                    this.txtName.setText(this.me.value);
                     console.log()
                 },
                 addHtml:function(){
-                    this.txtName.html('<b>'+this.me.value+'</b>');
+                    this.txtName.setHtml('<b>'+this.me.value+'</b>');
                 }
             }
         });

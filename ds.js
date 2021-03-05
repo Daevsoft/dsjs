@@ -4,21 +4,25 @@ class Ds{
     event;
     defaultEvent = [
         {
-            eventName       :'text',
+            eventName       :'setText',
             eventFunction   :function(txt){
                 this.me.innerText = txt;
             }
         },
         {
-            eventName       :'html',
+            eventName       :'setHtml',
             eventFunction   :function(subHtml){
                 this.me.innerHTML = subHtml;
             }
         },
         {
             eventName       :'attr',
-            eventFunction   :function(attributeName, attributeValue){
-                this.me.setAttribute(attributeName, attributeValue);
+            eventFunction   :function(attributeName, attributeValue = null){
+                if (attributeValue === null) {
+                    return this.me.attributes[attributeName].nodeValue;
+                }else{
+                    this.me.setAttribute(attributeName, attributeValue);
+                }
             }
         }
     ];
@@ -47,7 +51,6 @@ class Ds{
         for (let i = 0; i < this.defaultEvent.length; i++) {
             const event = this.defaultEvent[i];
             element[event.eventName] = event.eventFunction.bind(elData);
-            console.log(event.eventName)
         }
         return elData;
     }
@@ -57,7 +60,7 @@ class Ds{
             const attr = element.attributes[i];
             const attrValue = attr.nodeValue;
             const attrValueClean = attrValue.substring(1,attrValue.length-1).trim();
-            if(attr.name[0] == 'd'){
+            if(attr.name.substring(0,2) == 'd-'){
                 if (attr.name == 'd-id') {
                     this.data[attrValueClean] = element;
                 }
