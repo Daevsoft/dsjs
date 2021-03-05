@@ -31,7 +31,7 @@ class Ds{
         this.app = {
             children: document.querySelector('#'+selector).getElementsByTagName('*')
         };
-        this.data = arg.data;
+        this.data = arg.data ?? {};
         this.event = arg.event;
         for (let i = 0; i < this.app.children.length; i++) {
             const el = this.app.children[i];
